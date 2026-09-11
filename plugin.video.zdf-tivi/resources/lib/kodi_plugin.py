@@ -7,7 +7,9 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
+import xbmcvfs
 
+from updater import maybe_offer_update
 from zdf_api import (
     AZ_CATALOG_CANONICAL,
     START_COLLECTION_CANONICAL,
@@ -419,6 +421,9 @@ def play(api, params):
 
 def run():
     params = dict(urllib.parse.parse_qsl(sys.argv[2][1:]))
+    if not params.get("mode"):
+        maybe_offer_update(ADDON, xbmc, xbmcgui, xbmcvfs)
+
     api = ZdfSession()
     try:
         mode = params.get("mode")

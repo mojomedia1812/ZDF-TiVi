@@ -11,6 +11,7 @@ Entwickler: m0j01812
 - Sammlungen: Serien, Meta-Sammlungen und kuratierte ZDFtivi-Seiten
 - Staffeln/Folgen: VOD-Folgen mit Episodennummern, Beschreibung, Laufzeit und Vorschaubild
 - Filme: Movie-Collections werden direkt als abspielbare Filme angezeigt
+- Updates: Beim Add-on-Start wird das neueste GitHub-Release geprueft
 
 Das Addon liest kurzlebige ZDF-API-Tokens zur Laufzeit aus der offiziellen
 ZDF-Kinderseite und fragt danach die ZDF-GraphQL- und PTMD-Endpunkte ab.
@@ -19,6 +20,7 @@ ZDF-Kinderseite und fragt danach die ZDF-GraphQL- und PTMD-Endpunkte ab.
 
 ```powershell
 python plugin.video.zdf-tivi\resources\tools\smoke_test.py
+python plugin.video.zdf-tivi\resources\tools\update_test.py
 ```
 
 Mit `--no-stream` wird die abschliessende PTMD/HLS-Streamaufloesung uebersprungen.
